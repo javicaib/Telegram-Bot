@@ -243,5 +243,4 @@ docs/_book
 test/
 
 /core/.idea/
-/Backend/patient/migrations/
-/Backend/userModel/migrations/
+
