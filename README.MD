@@ -1,6 +1,6 @@
 # BOT TELGRAM + API DE CAT&Aacute;LOGOS
 ## Requisitos
-
+- Python
 ## API 
 ### Librerias :
 -  Django Rest Framework
