@@ -1,11 +1,21 @@
 from django.db import models
 
+def image_upload(instance, filename):
+        
+        print(instance.name)
+        instance_id = instance.name.lower()
+        instance_id = instance_id.replace(' ','-')
+        extension = filename.split(".")[-1]
+        new_filename = "%s.%s" %(instance_id,extension)
+        new_filepath = "static/%s" %(new_filename)
+
+        return new_filepath
 # Create your models here.
 class Nomeclador(models.Model):
     uuid = models.BigAutoField(primary_key=True)
     name = models.CharField(verbose_name='Nombre',max_length = 150,unique=True)
     description = models.TextField(verbose_name='Descripción',blank=True) 
-    
+    active = models.BooleanField(verbose_name='Activo',default=True)
     def __str__(self) -> str:
         return self.name  
     class Meta:
@@ -26,7 +36,7 @@ class BaseModel(models.Model):
     name = models.CharField(verbose_name='Nombre',max_length = 150,unique=True)
     description = models.TextField(verbose_name='Descripción',blank=True)
     price = models.FloatField(verbose_name='Precio')
-    image = models.ImageField(verbose_name='Foto',upload_to='static', height_field=None, width_field=None, max_length=100)
+    image = models.ImageField(verbose_name='Foto',upload_to=image_upload, height_field=None, width_field=None, max_length=100)
     category = models.TextField(blank=True)
     mesure_unit = models.ForeignKey(MesureUnit, on_delete=models.SET(''),blank=True)
     active = models.BooleanField(verbose_name='Activo',default=True)
