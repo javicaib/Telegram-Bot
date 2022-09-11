@@ -7,7 +7,7 @@ def image_upload(instance, filename):
         instance_id = instance_id.replace(' ','-')
         extension = filename.split(".")[-1]
         new_filename = "%s.%s" %(instance_id,extension)
-        new_filepath = "static/%s" %(new_filename)
+        new_filepath = "%s" %(new_filename)
 
         return new_filepath
 # Create your models here.
