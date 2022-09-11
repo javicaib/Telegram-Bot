@@ -248,4 +248,3 @@ db/
 **/media/*.jpg
 **/media/*.png
 !**/media/default.png
-**/migrations/**
