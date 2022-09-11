@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 
 def image_upload(instance, filename):
@@ -36,7 +37,7 @@ class BaseModel(models.Model):
     name = models.CharField(verbose_name='Nombre',max_length = 150,unique=True)
     description = models.TextField(verbose_name='Descripción',blank=True)
     price = models.FloatField(verbose_name='Precio')
-    image = models.ImageField(verbose_name='Foto',upload_to=image_upload, height_field=None, width_field=None, max_length=100)
+    image = models.ImageField(verbose_name='Foto',upload_to=image_upload, height_field=None, width_field=None, max_length=100,blank=True,default='default.jpg')
     category = models.TextField(blank=True)
     mesure_unit = models.ForeignKey(MesureUnit, on_delete=models.SET(''),blank=True)
     active = models.BooleanField(verbose_name='Activo',default=True)
