@@ -37,9 +37,9 @@ class BaseModel(models.Model):
     name = models.CharField(verbose_name='Nombre',max_length = 150,unique=True)
     description = models.TextField(verbose_name='Descripción',blank=True)
     price = models.FloatField(verbose_name='Precio')
-    image = models.ImageField(verbose_name='Foto',upload_to=image_upload, height_field=None, width_field=None, max_length=100,blank=True,default='default.jpg')
+    image = models.ImageField(verbose_name='Foto',upload_to=image_upload, height_field=None, width_field=None, max_length=100,blank=True,default='default.png')
     category = models.TextField(blank=True)
-    mesure_unit = models.ForeignKey(MesureUnit, on_delete=models.SET(''),blank=True)
+    mesure_unit = models.ForeignKey(MesureUnit, on_delete=models.SET(''),blank=True,null=True)
     active = models.BooleanField(verbose_name='Activo',default=True)
 
     def __str__(self) -> str:
@@ -51,7 +51,7 @@ class BaseModel(models.Model):
 
 class Game(BaseModel):
     
-    plataform = models.ForeignKey(Plataform, on_delete=models.SET(''),blank=True)
+    plataform = models.ForeignKey(Plataform, on_delete=models.SET(''),blank=True,null=True)
     heigth = models.FloatField(verbose_name='Peso')
     
 
