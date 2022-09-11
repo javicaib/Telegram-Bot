@@ -244,6 +244,7 @@ test/
 
 /core/.idea/
 db/
-!media/default.png
-media/*.jpg
-media/*.png
+
+**/media/*.jpg
+**/media/*.png
+!**/media/default.png
