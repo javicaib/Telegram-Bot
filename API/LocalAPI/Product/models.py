@@ -1,9 +1,6 @@
-from email.policy import default
 from django.db import models
 
 def image_upload(instance, filename):
-        
-        print(instance.name)
         instance_id = instance.name.lower()
         instance_id = instance_id.replace(' ','-')
         extension = filename.split(".")[-1]
