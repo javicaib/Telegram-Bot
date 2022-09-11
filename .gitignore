@@ -243,5 +243,5 @@ docs/_book
 test/
 
 /core/.idea/
-/db
-/media
+db/
+media/
