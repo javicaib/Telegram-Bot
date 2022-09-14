@@ -45,7 +45,7 @@
           
         ]"
       />
-      <q-select v-model="form.measure_unit" :options="um_opt" label="Unidad de medida" emit-value
+      <q-select v-model="form.um" :options="um_opt" label="Unidad de medida" emit-value
         map-options />
 
       <q-input
@@ -140,7 +140,7 @@ export default defineComponent( {
     
       price:'',
       plataform:'',
-      measure_unit:'',
+      um:'',
 
     })
 
@@ -151,6 +151,7 @@ export default defineComponent( {
             message: 'El juego se ha creado correctamente.',
             type: 'positive',
           })
+          console.log(form.value)
         router.push('/')  
       } catch (error) {
         console.error(error)
