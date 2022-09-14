@@ -84,6 +84,7 @@
 <script>
 import { useQuasar } from 'quasar'
 import { ref ,onMounted,defineComponent} from 'vue'
+import { useRouter } from 'vue-router'
 import gameService from 'src/services/game'
 import plataformService from 'src/services/plataformas'
 import umService from 'src/services/medidas'
@@ -92,6 +93,7 @@ export default defineComponent( {
   name : 'GameForm',
   setup () {
     const $q = useQuasar()
+    const router = useRouter()
     const {postGame} = gameService()
     const {listPlataform} = plataformService()
     const {listUM} = umService()
@@ -145,6 +147,11 @@ export default defineComponent( {
     const onSubmit = async () => {
       try {
         await postGame(form.value)
+        $q.notify({
+            message: 'El juego se ha creado correctamente.',
+            type: 'positive',
+          })
+        router.push('/')  
       } catch (error) {
         console.error(error)
       }
