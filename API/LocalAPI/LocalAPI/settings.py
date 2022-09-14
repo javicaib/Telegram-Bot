@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-sxi9lard4=153&*15c!ftt#nb870jbm^b4j1+9_s3ginv7(q4%
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
@@ -39,7 +39,8 @@ BASE_APPS = ['django.contrib.admin',
              'django.contrib.staticfiles',
              ]
 THIRDY_APPS = [
-    'rest_framework'
+    'rest_framework',
+    'corsheaders'
 ]
 
 APPS = [
@@ -56,6 +57,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = 'LocalAPI.urls'
